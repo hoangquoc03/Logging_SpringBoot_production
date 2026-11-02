@@ -17,7 +17,8 @@ Session16/
     ├── main/
     │   ├── java/com/example/session16/
     │   │   ├── Session16Application.java
-    │   │   └── LoggingController.java
+    │   │   ├── LoggingController.java
+    │   │   └── LoggingTestController.java
     │   └── resources/
     │       ├── application.yml
     │       ├── application-dev.yml
@@ -80,3 +81,8 @@ dung lượng archive ở 1 GB. Mức root và `com.example` được đọc t�
 `logging.level` của Spring, do đó các giá trị của profile `dev`/`prod` vẫn
 được áp dụng. Thư mục runtime `logs/` và thư mục build `target/` được ignore
 bởi Git.
+
+Log console và file được xuất dưới dạng một JSON object trên mỗi dòng bằng
+Logstash Logback Encoder. Endpoint kiểm thử `/test-log` và `/test-exception`
+chỉ được bật khi chạy với `--app.logging-test.enabled=true`; bật tùy chọn này
+chỉ trong môi trường kiểm thử.

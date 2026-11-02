@@ -11,8 +11,8 @@ public class Session16Application {
     private static final Logger log = LoggerFactory.getLogger(Session16Application.class);
 
     public static void main(String[] args) {
+        SpringApplication.run(Session16Application.class, args);
         log.debug("DEBUG: Starting Session16 application");
         log.info("INFO: Starting Session16 application");
-        SpringApplication.run(Session16Application.class, args);
     }
 }
