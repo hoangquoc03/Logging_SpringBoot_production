@@ -88,3 +88,7 @@ chỉ được bật khi chạy với `--app.logging-test.enabled=true`; bật t
 chỉ trong môi trường kiểm thử. Mỗi JSON event có metadata `app_name:
 order-service` và `env: production`; exception được ghi trong field
 `stack_trace`.
+
+Mỗi HTTP request được gán một UUID `traceId` trong SLF4J MDC. LogstashEncoder
+đưa các giá trị MDC vào JSON; interceptor xóa riêng `traceId` sau khi request
+hoàn tất.
