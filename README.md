@@ -70,3 +70,13 @@ Dừng ứng dụng bằng `Ctrl+C`.
 - `application-dev.yml` cấu hình `root: DEBUG` và `com.example: DEBUG`.
 - `application-prod.yml` cấu hình `root: INFO` và `com.example: INFO`.
 - Project dùng Spring Boot 3.5.7 và Java 17.
+
+## Rolling log file
+
+`src/main/resources/logback-spring.xml` ghi log ra console và `logs/app.log`.
+Logback xoay file theo ngày và khi file đạt 10 MB, với tên archive dạng
+`logs/app-yyyy-MM-dd.N.log`. Chính sách giữ tối đa 30 ngày và giới hạn tổng
+dung lượng archive ở 1 GB. Mức root và `com.example` được đọc từ cấu hình
+`logging.level` của Spring, do đó các giá trị của profile `dev`/`prod` vẫn
+được áp dụng. Thư mục runtime `logs/` và thư mục build `target/` được ignore
+bởi Git.

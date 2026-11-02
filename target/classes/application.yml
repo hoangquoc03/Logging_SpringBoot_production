@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: session16
-
-server:
-  port: 8080
-
-# Logging levels are configured in application-dev.yml and application-prod.yml.
