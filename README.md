@@ -85,4 +85,6 @@ bởi Git.
 Log console và file được xuất dưới dạng một JSON object trên mỗi dòng bằng
 Logstash Logback Encoder. Endpoint kiểm thử `/test-log` và `/test-exception`
 chỉ được bật khi chạy với `--app.logging-test.enabled=true`; bật tùy chọn này
-chỉ trong môi trường kiểm thử.
+chỉ trong môi trường kiểm thử. Mỗi JSON event có metadata `app_name:
+order-service` và `env: production`; exception được ghi trong field
+`stack_trace`.
