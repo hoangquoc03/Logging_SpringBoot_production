@@ -22,7 +22,7 @@
         </encoder>
     </appender>
 
-    <appender name="ROLLING_FILE"
+    <appender name="FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_DIR}/app.log</file>
 
@@ -42,10 +42,17 @@
         </encoder>
     </appender>
 
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>512</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <neverBlock>false</neverBlock>
+        <appender-ref ref="FILE"/>
+    </appender>
+
     <logger name="com.example" level="${EXAMPLE_LOG_LEVEL}"/>
 
     <root level="${ROOT_LOG_LEVEL}">
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="ROLLING_FILE"/>
+        <appender-ref ref="ASYNC_FILE"/>
     </root>
 </configuration>
